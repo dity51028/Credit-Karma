@@ -1,6 +1,6 @@
 import { FC, useState } from "react";
 import { TextInput } from "../inputs";
-
+import { AuthButton } from "../buttons";
 const Signup: FC = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
@@ -13,6 +13,8 @@ const Signup: FC = () => {
 
       <span>Password :</span>
       <TextInput state={password} onStateChange={setPassword} style={""} />
+
+      <AuthButton style={""} text={"SignUp"} onClick={() => {}} />
     </div>
   );
 };

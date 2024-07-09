@@ -1,4 +1,2 @@
-import authButton from "./authButton";
-export{
-    authButton
-}
+import AuthButton from "./AuthButton";
+export { AuthButton };
