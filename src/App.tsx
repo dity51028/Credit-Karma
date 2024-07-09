@@ -1,9 +1,12 @@
-import { FC } from "react"
+import { FC } from "react";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { routes } from "./constants/routes";
 
-const App:FC = () => {
+export const App: FC = () => {
+  const router = createBrowserRouter(routes);
   return (
-    <div className=" bg-red-600">App</div>
-  )
-}
-
-export default App
+    <>
+      <RouterProvider router={router} />
+    </>
+  );
+};
