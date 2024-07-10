@@ -1,4 +1,4 @@
-import { Login, Signup } from "../components/auth";
+import { Login, Signup } from "../components";
 import { AuthContainer } from "../pages";
 
 export const routes = [
