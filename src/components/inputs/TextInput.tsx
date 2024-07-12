@@ -1,20 +1,26 @@
-import { Dispatch, FC, SetStateAction } from "react";
+import { ChangeEvent, FC } from "react";
 import { mergeStyles } from "../../utils";
 
 type TTextInputProps = {
-  style: string;
-  state: string;
-  onStateChange: Dispatch<SetStateAction<string>>;
+  style?: string;
+  onStateChange: (e: ChangeEvent<HTMLInputElement>) => void;
+  placeHolder: string;
 };
 
-const TextInput: FC<TTextInputProps> = ({ state, style, onStateChange }) => {
+const TextInput: FC<TTextInputProps> = ({
+  placeHolder,
+  style,
+  onStateChange,
+}) => {
   return (
     <input
-      value={state}
-      onChange={(e) => onStateChange(e.target.value)}
+      onChange={(e) => onStateChange(e)}
       type="text"
-      placeholder="Type here"
-      className={mergeStyles("input input-bordered w-full max-w-xs", style)}
+      placeholder={placeHolder ? placeHolder : "type here"}
+      className={mergeStyles(
+        "input input-bordered w-full max-w-xs",
+        style ? style : "",
+      )}
     />
   );
 };

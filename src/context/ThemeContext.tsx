@@ -1,4 +1,4 @@
-import { FC, createContext, useState } from "react";
+import { FC, createContext, useEffect, useState } from "react";
 import { TThemeContext, TContextProps } from "../@types";
 
 export const ThemeContext = createContext<TThemeContext | null>(null);
@@ -12,6 +12,12 @@ const ThemeContextProvider: FC<TContextProps> = ({ children }) => {
     theme,
     toggleTheme,
   };
+
+  useEffect(() => {
+    document
+      .querySelector("html")
+      ?.setAttribute("data-theme", theme ? "light" : "dark");
+  }, [theme]);
 
   return (
     <ThemeContext.Provider value={value}>{children}</ThemeContext.Provider>

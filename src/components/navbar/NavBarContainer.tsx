@@ -1,11 +1,35 @@
-import { FC } from "react";
+import { FC, useEffect, useState } from "react";
+import { TextInput } from "..";
+import { useTheme } from "../../hooks";
+import { ImageDarkIcon, ImageLightIcon } from "../../constants/image-index";
 
 const NavBarContainer: FC = () => {
+  const ThemeContext = useTheme();
+  const [search, setSearch] = useState<string>("");
+  useEffect(() => {
+    if (search.length === 0) return;
+    console.log(search);
+  }, [search]);
   return (
     <>
       <div className="navbar bg-base-100">
         <div className="flex-1">
           <a className="btn btn-ghost text-xl">Credit-Karma</a>
+        </div>
+        <div className="flex-none navbar-end gap-x-2">
+          <TextInput onStateChange={() => {}} placeHolder="Search Here" />
+          <div>
+            <img
+              src={ThemeContext.theme ? ImageDarkIcon : ImageLightIcon}
+              alt="themeIcon"
+              width={42}
+              height={42}
+              onClick={() => {
+                localStorage.setItem("theme", !ThemeContext.theme + "");
+                ThemeContext.toggleTheme();
+              }}
+            />
+          </div>
         </div>
 
         <div className="dropdown dropdown-end">
