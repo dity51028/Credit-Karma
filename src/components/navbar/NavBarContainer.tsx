@@ -17,11 +17,14 @@ const NavBarContainer: FC = () => {
           <a className="btn btn-ghost text-xl">Credit-Karma</a>
         </div>
         <div className="flex-none navbar-end gap-x-2">
-          <TextInput onStateChange={(e) => {
-            debounce (()=>{
-              setSearch(e.target.value)
-            })
-          }} placeHolder="Search Here" />
+          <TextInput
+            onStateChange={(e) => {
+              debounce(() => {
+                setSearch(e.target.value);
+              });
+            }}
+            placeHolder="Search Here"
+          />
           <div>
             <img
               src={ThemeContext.theme ? ImageDarkIcon : ImageLightIcon}

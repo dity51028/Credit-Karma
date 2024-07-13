@@ -1,2 +1,6 @@
 import { useTheme } from "./useTheme";
-export { useTheme };
+import { useToast } from "./useToast";
+export { 
+    useTheme,
+    useToast
+ };
