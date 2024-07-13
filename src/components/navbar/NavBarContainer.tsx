@@ -2,7 +2,7 @@ import { FC, useEffect, useState } from "react";
 import { TextInput } from "..";
 import { useTheme } from "../../hooks";
 import { ImageDarkIcon, ImageLightIcon } from "../../constants/image-index";
-
+import { debounce } from "../../utils";
 const NavBarContainer: FC = () => {
   const ThemeContext = useTheme();
   const [search, setSearch] = useState<string>("");
@@ -17,7 +17,11 @@ const NavBarContainer: FC = () => {
           <a className="btn btn-ghost text-xl">Credit-Karma</a>
         </div>
         <div className="flex-none navbar-end gap-x-2">
-          <TextInput onStateChange={() => {}} placeHolder="Search Here" />
+          <TextInput onStateChange={(e) => {
+            debounce (()=>{
+              setSearch(e.target.value)
+            })
+          }} placeHolder="Search Here" />
           <div>
             <img
               src={ThemeContext.theme ? ImageDarkIcon : ImageLightIcon}
