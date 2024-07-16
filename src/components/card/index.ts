@@ -3,9 +3,4 @@ import TotalExpenseCard from "./TotalExpenseCard";
 import TotalIncomeCard from "./TotalIncomeCard";
 import CurrentBalanceCard from "./CurrentBalanceCard";
 
-export{
-    GenericCard,
-    TotalExpenseCard,
-    TotalIncomeCard,
-    CurrentBalanceCard
-}
+export { GenericCard, TotalExpenseCard, TotalIncomeCard, CurrentBalanceCard };

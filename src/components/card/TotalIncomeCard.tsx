@@ -1,9 +1,7 @@
-import React from 'react'
+import React from "react";
 
 const TotalIncomeCard = () => {
-  return (
-    <div>TotalIncomeCard</div>
-  )
-}
+  return <div>TotalIncomeCard</div>;
+};
 
-export default TotalIncomeCard
+export default TotalIncomeCard;
