@@ -8,7 +8,7 @@ import { NavBarContainer } from "../components/navbar";
 
 const DashboardContainer: FC = () => {
   const [loading, setLoading] = useState<boolean>(true);
-  const [showModal, setshowModal] = useState<boolean>(false);
+  const [showModal, setshowModal] = useState<boolean>(true);
   return (
     <>
       <NavBarContainer />
@@ -22,7 +22,7 @@ const DashboardContainer: FC = () => {
         <TotalExpenseCard
           loading={loading}
           setLoading={setLoading}
-          setShowmodal={setshowModal}
+          setShowModal={setshowModal}
         />
 
         <TotalIncomeCard
@@ -30,6 +30,7 @@ const DashboardContainer: FC = () => {
           setLoading={setLoading}
           setShowModal={setshowModal}
         />
+        {showModal}
       </div>
     </>
   );
