@@ -50,7 +50,7 @@ const GenericCard: FC<TGenericCard> = ({
       transition
       ease-out
       delay-150
-      `}
+  `}
         onClick={onClick}
       >
         {buttonText}

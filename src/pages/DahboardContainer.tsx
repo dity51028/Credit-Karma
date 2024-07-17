@@ -5,6 +5,7 @@ import {
   TotalIncomeCard,
 } from "../components/card";
 import { NavBarContainer } from "../components/navbar";
+import { FinanceModal } from "../components/modals";
 
 const DashboardContainer: FC = () => {
   const [loading, setLoading] = useState<boolean>(true);
@@ -30,7 +31,13 @@ const DashboardContainer: FC = () => {
           setLoading={setLoading}
           setShowModal={setshowModal}
         />
-        {showModal}
+        {showModal && (
+          <FinanceModal
+            onClose={() => {
+              setshowModal(false);
+            }}
+          />
+        )}
       </div>
     </>
   );

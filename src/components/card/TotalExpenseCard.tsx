@@ -22,8 +22,8 @@ const TotalExpenseCard: FC<TTotalExpenseCard> = ({
     <GenericCard
       title={"Total Expence"}
       buttonText={"Reset"}
-      balance={100}
-      onClick={() => {}}
+      balance={currentBalance}
+      onClick={onClick}
       loading={loading}
     />
   );
