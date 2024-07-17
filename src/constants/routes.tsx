@@ -1,6 +1,6 @@
 import { Login, Signup } from "../components";
 import { NavBarContainer } from "../components/navbar";
-import { AuthContainer } from "../pages";
+import { AuthContainer, DashboardContainer } from "../pages";
 
 export const routes = [
   {
@@ -17,8 +17,9 @@ export const routes = [
       },
     ],
   },
+
   {
     path: "/",
-    element: <NavBarContainer />,
+    element: <DashboardContainer />,
   },
 ];

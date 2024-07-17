@@ -1,2 +1,3 @@
 import AuthContainer from "./AuthContainer";
-export { AuthContainer };
+import DashboardContainer from "./DahboardContainer";
+export { AuthContainer, DashboardContainer };
