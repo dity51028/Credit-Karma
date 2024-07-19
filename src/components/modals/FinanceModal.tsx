@@ -1,13 +1,14 @@
 import { FC, useEffect, useRef, useState } from "react";
 import { TextInput } from "..";
 import { useTheme } from "../../hooks";
-import { ref } from "firebase/database";
+import { TModalHeader } from "../../@types";
 
 type TFinanceModal = {
   onClose: () => void;
+  modalHeader: TModalHeader;
 };
 
-const FinanceModal: FC<TFinanceModal> = ({ onClose }) => {
+const FinanceModal: FC<TFinanceModal> = ({ onClose, modalHeader }) => {
   const [name, setName] = useState<string>("");
   const [amount, setAmount] = useState<number | null>(null);
   const [date, setDate] = useState<string>("");
@@ -56,7 +57,7 @@ const FinanceModal: FC<TFinanceModal> = ({ onClose }) => {
       gap-y-2
       `}
       >
-        <p className="text-xl font-semibold text-center py-4">Add Income</p>
+        <p className="text-xl font-semibold text-center py-4">{modalHeader}</p>
         <TextInput
           onStateChange={(e) => {}}
           placeHolder={"Enter Action Name"}

@@ -6,6 +6,8 @@ export default {
     extend: {
       colors: {
         "light-primary": "#0b701c",
+        "light-secondary": "#1987c2",
+        "light-secondary-hover": "#0f5f8a",
       },
     },
   },

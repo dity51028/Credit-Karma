@@ -45,7 +45,7 @@ const GenericCard: FC<TGenericCard> = ({
       px-2
       py-1
       rounded-md
-      hover:bg-light-secondary-hover
+      hover:bg-light-secondary
       hover:text-white
       transition
       ease-out

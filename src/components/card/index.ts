@@ -1,6 +1,4 @@
 import GenericCard from "./GenericCard";
-import TotalExpenseCard from "./TotalExpenseCard";
-import TotalIncomeCard from "./TotalIncomeCard";
-import CurrentBalanceCard from "./CurrentBalanceCard";
+import CardWrapper from "./CardWrapper";
 
-export { GenericCard, TotalExpenseCard, TotalIncomeCard, CurrentBalanceCard };
+export { GenericCard, CardWrapper };
