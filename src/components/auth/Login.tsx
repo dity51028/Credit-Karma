@@ -1,18 +1,43 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useCallback, useEffect, useState } from "react";
 import { TextInput } from "../inputs";
 import { AuthButton } from "../buttons";
 import { useToast } from "../../hooks";
+import { generateRequest } from "../../services/generateRequest";
+import { useNavigate } from "react-router-dom";
+
 
 const Login: FC = () => {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
+  const [loading,setLoading] = useState<boolean>(true);
+  const navigate = useNavigate();
+  const {toastError} = useToast();
 
-  useEffect(() => {
-    const { toastSuccess } = useToast();
-    toastSuccess("Its done");
+ 
 
-    return () => {};
-  }, []);
+  const onclick= useCallback(async()=>{
+    try{
+      setLoading(true);
+
+      await generateRequest({
+        path:'auth/login',
+        method:'POST',
+        body:{
+          email,
+          password
+        }
+      });
+      navigate ('/')
+
+    }catch(error){
+
+      toastError(error instanceof Error?error.message:"Something went wrong")
+
+
+    }finally{
+      setLoading(false)
+    }
+  },[email,password]);
 
   return (
     <div className="flex flex-col gap-y-2 w-[300px] h-[400px]">
@@ -20,18 +45,18 @@ const Login: FC = () => {
       <span>Email :</span>
       <TextInput
         placeHolder="Enter Email Id"
-        onStateChange={() => {}}
-        style={""}
+        onStateChange={(e) => {setEmail(e.target.value)}}
+        
       />
 
       <span>Password :</span>
       <TextInput
         placeHolder="Enter password"
-        onStateChange={() => {}}
-        style={""}
+        onStateChange={(e) => {setPassword(e.target.value)}}
+        
       />
 
-      <AuthButton style={""} text={"Login"} onClick={() => {}} />
+      <AuthButton style=""  text={"Login"} onClick={onclick} />
     </div>
   );
 };

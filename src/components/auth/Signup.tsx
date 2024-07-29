@@ -6,12 +6,8 @@ import { useNavigate } from "react-router-dom";
 import { useToast } from "../../hooks";
 
 
-
-
-
-
-
 const Signup: FC = () => {
+  
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [confirmPassword, setconfirmPassword] = useState<string>("");
@@ -33,7 +29,6 @@ const Signup: FC = () => {
           email,
           password
         }
-
       });
       navigate('/')
     }catch(error){
@@ -43,8 +38,6 @@ const Signup: FC = () => {
       setloading(false)
     }
     
-    
-  
   },[email,password]);
 
   return (
